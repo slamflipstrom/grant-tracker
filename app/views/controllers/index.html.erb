@@ -1,0 +1,23 @@
+<h1>Listing controllers</h1>
+
+<table>
+  <tr>
+    <th>User</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @controllers.each do |controller| %>
+  <tr>
+    <td><%= controller.user %></td>
+    <td><%= link_to 'Show', controller %></td>
+    <td><%= link_to 'Edit', edit_controller_path(controller) %></td>
+    <td><%= link_to 'Destroy', controller, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Controller', new_controller_path %>
