@@ -47,3 +47,5 @@ gem 'carrierwave'
 gem 'dotenv-rails', :groups => [:development, :test]
 gem 'delayed_job_active_record'
 gem 'rmagick', require: false
+
+gem 'sorcery'
