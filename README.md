@@ -8,3 +8,7 @@ Non-profits apply for a lot of grants, most of which require at least some basic
 6. From the admin panel, I can view all grants that are active, all upcoming tasks (sorted by deadline and tagged by grant), and recently completed tasks (ditto).
 
 This tool’s primary use is organizing and collecting the information used to write grant reports.
+
+Here is a [sample template for a grant report](http://www.knightfoundation.org/knight-news-challenge/sample-grant-agreement/). Every bold-faced heading constitutes a section of the report. The grant-tracker application should not compile the reports, per se, but instead should be a thing that can be used to keep track of the documents and materials.
+
+Group members: Heather, Adam, Diana, Sam (Andrew as consultant).
