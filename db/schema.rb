@@ -11,14 +11,8 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20141007185122) do
-
-  create_table "controllers", :force => true do |t|
-    t.string   "user"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
+ActiveRecord::Schema.define(:version => 20141007183328) do
+  
   create_table "users", :force => true do |t|
     t.string   "email",            :null => false
     t.string   "crypted_password", :null => false
