@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(:version => 20141008144609) do
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
     t.datetime "due"
+    t.string   "file"
   end
 
   create_table "users", :force => true do |t|
