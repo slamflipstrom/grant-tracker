@@ -1,5 +1,11 @@
 GrantTracker::Application.routes.draw do
  
+  resources :grants
+
+
+  resources :organizations
+
+
   root :to => 'users#index'
   resources :user_sessions
   resources :users
