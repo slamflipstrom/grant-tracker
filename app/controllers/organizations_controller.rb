@@ -1,9 +1,10 @@
 class OrganizationsController < ApplicationController
-  skip_before_filter :require_login, only: [:new, :create]
+  skip_before_filter :require_login, only: [:new, :create, :index]
   # GET /organizations
   # GET /organizations.json
   def index
     @organizations = Organization.all
+    
 
     respond_to do |format|
       format.html # index.html.erb
@@ -26,6 +27,7 @@ class OrganizationsController < ApplicationController
   # GET /organizations/new.json
   def new
     @organization = Organization.new
+    @organization.users.build
 
     respond_to do |format|
       format.html # new.html.erb
@@ -42,10 +44,16 @@ class OrganizationsController < ApplicationController
   # POST /organizations.json
   def create
     @organization = Organization.new(params[:organization])
-
+    
     respond_to do |format|
       if @organization.save
-        format.html { redirect_to @organization, notice: 'Organization was successfully created.' }
+        # Sets Organization's first user to admin.
+        @organization.users.first.update_attribute('admin', true)
+        
+        # Auto logs in Organization's first user upon creation.
+        auto_login(@organization.users.first)
+        
+        format.html { redirect_to organizations_path, notice: 'Organization was successfully created.' }
         format.json { render json: @organization, status: :created, location: @organization }
       else
         format.html { render action: "new" }

@@ -24,11 +24,18 @@ class GrantsController < ApplicationController
   # GET /grants/new
   # GET /grants/new.json
   def new
-    @grant = Grant.new
+    if current_user.admin == true
+      @grant = Grant.new
 
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @grant }
+      respond_to do |format|
+        format.html # new.html.erb
+        format.json { render json: @grant }
+      end
+    else
+      respond_to do |format|
+        format.html { redirect_to organization_path(current_user.organization_id) }
+        format.json { render json: @grant }
+      end
     end
   end
 
