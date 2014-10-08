@@ -24,4 +24,7 @@
 
 <br />
 
-<%= link_to 'New Task', new_task_path %>
+<%= direct_upload_form_for @uploader do |f| %>
+  <p><%= f.file_field :file %></p>
+  <p><%= f.submit "Upload File" %></p>
+<% end %>

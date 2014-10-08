@@ -3,6 +3,8 @@ class TasksController < ApplicationController
   # GET /tasks.json
   def index
     @tasks = Task.all
+    @uploader = Task.new.file
+    @uploader.success_action_redirect = new_task_url
 
     respond_to do |format|
       format.html # index.html.erb
