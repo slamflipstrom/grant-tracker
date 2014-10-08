@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   
   belongs_to :organization
   has_many :tasks
+  has_many :grants, :through => :organization
 
   validates :password, length: { minimum: 3 }
   validates :password, confirmation: true
