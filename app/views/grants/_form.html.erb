@@ -17,11 +17,8 @@
   </div>
   
 
-  
-  <p>
-    <%= f.file_field :image %>
-  </p>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <%= direct_upload_form_for @uploader do |g| %>
+    <p><%= g.file_field :image %></p>
+    <p><%= g.submit "Upload Image" %></p>
+  <% end %>
 <% end %>

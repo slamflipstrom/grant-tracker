@@ -27,6 +27,8 @@ class TasksController < ApplicationController
   # GET /tasks/new.json
   def new
     @task = Task.new
+    @uploader = Task.new.image
+    @uploader.success_action_redirect = new_task_url
 
     respond_to do |format|
       format.html # new.html.erb
