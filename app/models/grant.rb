@@ -4,4 +4,6 @@ class Grant < ActiveRecord::Base
   has_many :tasks
   
   belongs_to :organization
+  
+  has_many :uploads
 end
