@@ -1,4 +1,5 @@
 class OrganizationsController < ApplicationController
+  skip_before_filter :require_login, only: [:new, :create]
   # GET /organizations
   # GET /organizations.json
   def index
