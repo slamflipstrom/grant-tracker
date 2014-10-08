@@ -2,7 +2,7 @@ class GrantsController < ApplicationController
   # GET /grants
   # GET /grants.json
   def index
-    @grants = Grant.includes(:organization).where(organization_id: current_user.organization_id)
+    @grants = Grant.includes(:tasks).where(organization_id: current_user.organization_id)
 
     respond_to do |format|
       format.html # index.html.erb

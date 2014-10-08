@@ -21,3 +21,16 @@
 <br />
 
 <%= link_to 'New Grant', new_grant_path %>
+
+
+<% @grants.each do |grant| %>
+  <ul>
+    <li><%= grant.name %></li>
+      <ul>
+        <% grant.tasks.each do |task| %>
+          <li><%= task.name %></li>
+        <% end %>
+      </ul>
+  </ul>
+  
+<% end %>
