@@ -5,5 +5,5 @@ class Task < ActiveRecord::Base
  
   belongs_to :grant
   
-  mount_uploader :image, FileUploader
+  mount_uploader :image, ImageUploader
 end

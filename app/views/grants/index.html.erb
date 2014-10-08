@@ -10,7 +10,7 @@
 
 <% @grants.each do |grant| %>
   <tr>
-    <%= file_tag task.file_url.to_s %>
+    <%= image_tag task.image_url.to_s %>
     <td><%= grant.name %></td>
     <td><%= link_to 'Show', grant %></td>
     <td><%= link_to 'Edit', edit_grant_path(grant) %></td>
