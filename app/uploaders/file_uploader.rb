@@ -7,7 +7,10 @@ class FileUploader < CarrierWave::Uploader::Base
   # include CarrierWave::MiniMagick
 
   # Choose what kind of storage to use for this uploader:
-  storage :file
+  storage :fog
+  
+  include CarrierWave::MimeTypes
+  process :set_content_type
   # storage :fog
 
   # Override the directory where uploaded files will be stored.
