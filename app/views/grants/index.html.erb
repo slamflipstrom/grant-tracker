@@ -8,9 +8,9 @@
     <th></th>
   </tr>
 
-<% @grants.tasks.each do |grant| %>
+<% @grants.each do |grant| %>
   <tr>
-    <%= image_tag task.file_url.to_s %>
+    <%= file_tag task.file_url.to_s %>
     <td><%= grant.name %></td>
     <td><%= link_to 'Show', grant %></td>
     <td><%= link_to 'Edit', edit_grant_path(grant) %></td>

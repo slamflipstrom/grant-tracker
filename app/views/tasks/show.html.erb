@@ -15,6 +15,11 @@
   <%= @task.name %>
 </p>
 
+<p>
+  <b>File:</b>
+<%= image_tag @task.file_url.to_s %>
+</p>
+
 
 <%= link_to 'Edit', edit_task_path(@task) %> |
 <%= link_to 'Back', tasks_path %>
