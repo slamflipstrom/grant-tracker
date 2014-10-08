@@ -39,8 +39,8 @@ ActiveRecord::Schema.define(:version => 20141008144609) do
     t.integer  "grant_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
-    t.datetime "due"
     t.string   "file"
+    t.datetime "due"
   end
 
   create_table "users", :force => true do |t|

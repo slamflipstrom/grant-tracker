@@ -1,5 +1,7 @@
 <h1>Grant Tracker</h1>
 
 <p>How It Works!</p>
-
+<% if current_user %>
+<% else %>
 <%= link_to 'Sign Up!', signup_path %>
+<% end %>
