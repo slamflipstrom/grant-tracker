@@ -44,7 +44,7 @@ group :development, :test do
 end
 
 gem 'carrierwave'
-gem "fog"
+gem 'fog', '~> 1.3.1'
 gem 'carrierwave_direct'
 gem 'sidekiq'
 gem 'dotenv-rails', :groups => [:development, :test]

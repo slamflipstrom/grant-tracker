@@ -3,6 +3,8 @@ class GrantsController < ApplicationController
   # GET /grants.json
   def index
     @grants = Grant.all
+    @uploader = Grant.new.image
+    @uploader.success_action_redirect = new_grant_url
 
     respond_to do |format|
       format.html # index.html.erb
@@ -41,6 +43,7 @@ class GrantsController < ApplicationController
   # POST /grants.json
   def create
     @grant = Grant.new(params[:grant])
+    binding.pry
 
     respond_to do |format|
       if @grant.save
