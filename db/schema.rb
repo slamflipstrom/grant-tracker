@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20141008153012) do
+ActiveRecord::Schema.define(:version => 20141008165100) do
 
   create_table "controllers", :force => true do |t|
     t.string   "user"
@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(:version => 20141008153012) do
     t.integer  "grant_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
-    t.string   "file"
+    t.string   "image"
   end
 
   create_table "uploads", :force => true do |t|
@@ -48,7 +48,7 @@ ActiveRecord::Schema.define(:version => 20141008153012) do
     t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
-    t.string   "file"
+    t.string   "image"
   end
 
   create_table "users", :force => true do |t|

@@ -1,5 +1,5 @@
 class Grant < ActiveRecord::Base
-  attr_accessible :name, :file
+  attr_accessible :name, :image
   
   has_many :tasks
   
@@ -7,5 +7,5 @@ class Grant < ActiveRecord::Base
   
   has_many :uploads
   
-   mount_uploader :file, FileUploader
+   mount_uploader :image, FileUploader
 end
