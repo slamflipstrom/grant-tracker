@@ -1,5 +1,5 @@
 class Grant < ActiveRecord::Base
-  attr_accessible :name, :organization_id
+  attr_accessible :name
   
   has_many :tasks
   

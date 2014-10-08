@@ -1,5 +1,5 @@
 class Task < ActiveRecord::Base
-  attr_accessible :description, :due_date, :grant_id, :name, :user_id
+  attr_accessible :description, :due_date, :name
   
   belongs_to :user
  
