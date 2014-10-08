@@ -47,15 +47,17 @@ class GrantsController < ApplicationController
   # POST /grants
   # POST /grants.json
   def create
-    @grant = Grant.new(params[:grant])
+    if current_user.admin == true
+      @grant = Grant.new(params[:grant])
 
-    respond_to do |format|
-      if @grant.save
-        format.html { redirect_to @grant, notice: 'Grant was successfully created.' }
-        format.json { render json: @grant, status: :created, location: @grant }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @grant.errors, status: :unprocessable_entity }
+      respond_to do |format|
+        if @grant.save
+          format.html { redirect_to @grant, notice: 'Grant was successfully created.' }
+          format.json { render json: @grant, status: :created, location: @grant }
+        else
+          format.html { render action: "new" }
+          format.json { render json: @grant.errors, status: :unprocessable_entity }
+        end
       end
     end
   end
