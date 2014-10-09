@@ -10,6 +10,7 @@
 
 <% @grants.each do |grant| %>
   <tr>
+    <%= image_tag grant.image_url.to_s %>
     <td><%= grant.name %></td>
     <td><%= link_to 'Show', grant %></td>
     <td><%= link_to 'Edit', edit_grant_path(grant) %></td>
@@ -33,4 +34,9 @@
       </ul>
   </ul>
   
+<% end %>
+
+<%= direct_upload_form_for @uploader do |f| %>
+  <p><%= f.file_field :image %></p>
+  <p><%= f.submit "Save" %></p>
 <% end %>
