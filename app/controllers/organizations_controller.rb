@@ -15,6 +15,7 @@ class OrganizationsController < ApplicationController
   def show
     @organization = Organization.find(params[:id])
     @org = Organization.includes(:grants).where(id: current_user.organization_id)   
+    @users = User.where(organization_id: (params[:id]))
 
     respond_to do |format|
       format.html # show.html.erb
@@ -88,4 +89,27 @@ class OrganizationsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  def new_user
+     @org = Organization.find_by_id(current_user.organization_id)
+     @user = User.new
+  end
+  
+  def create_user
+    @user = User.new(params[:user])
+    
+    respond_to do |format|
+      if @user.save
+        # Sets Organization's first user to admin.
+        @user.update_attribute('organization_id', current_user.organization_id)
+        
+        format.html { redirect_to organizations_path, notice: 'User was successfully created.' }
+        format.json { render json: @organization, status: :created, location: @organization }
+      else
+        format.html { render action: "new" }
+        format.json { render json: @organization.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+  
 end
