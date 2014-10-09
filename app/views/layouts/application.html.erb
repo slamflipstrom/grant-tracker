@@ -8,6 +8,14 @@
   </head>
   <body>
 
+<header>
+  <nav>
+    <ul>
+      <li><%= link_to "Home", root_path %></li>
+    </ul>
+  </nav>
+</header>
+
   <div id="nav">
     <% if current_user %>
       <%= link_to "Edit Profile", edit_user_path(current_user.id) %>
@@ -22,8 +30,14 @@
     <p id="notice"><%= flash[:notice] %></p>
     <p id="alert"><%= flash[:alert] %></p>
   </div>
+  
+  <div class="main">
  
-  <%= yield %>
+    <%= yield %>
+  
+  </div>
+
+
 
   </body>
 </html>
