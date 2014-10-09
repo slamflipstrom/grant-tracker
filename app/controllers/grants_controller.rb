@@ -3,10 +3,7 @@ class GrantsController < ApplicationController
   # GET /grants.json
   def index
     @grants = Grant.all
-    @uploader = Grant.new.image
-    @uploader.success_action_redirect = grants_url
-   
-
+    
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @grants }
