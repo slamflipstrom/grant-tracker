@@ -26,6 +26,8 @@ class GrantsController < ApplicationController
   # GET /grants/new
   # GET /grants/new.json
   def new
+    
+    # Only allows admin to create new grants.
     if current_user.admin == true
       @grant = Grant.new
       @uploader = Grant.new.image

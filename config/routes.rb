@@ -1,14 +1,15 @@
 GrantTracker::Application.routes.draw do
  
   root :to => 'pages#index'
+  get '/dashboard' => 'pages#dashboard', as: 'dashboard'
+  get '/new_user' => 'organizations#new_user', as: 'org_user'
 
   resources :grants
-
-
   resources :organizations
   
   get '/signup' => 'organizations#new', as: 'signup'
-  get '/organizations/:id/new-user' => 'organizations#new-user', as: 'organization_user'
+  get '/organizations/:id/new_user' => 'organizations#new_user', as: 'organization_user'
+  post '/users' => 'organizations#create_user'
   
   root :to => 'users#index'
   resources :user_sessions
@@ -17,10 +18,6 @@ GrantTracker::Application.routes.draw do
 
   get 'login' => 'user_sessions#new', :as => :login
   post 'logout' => 'user_sessions#destroy', :as => :logout
-
-
-
-
 
 
   # The priority is based upon order of creation:
