@@ -1,10 +1,9 @@
 GrantTracker::Application.routes.draw do
  
   root :to => 'pages#index'
+  get '/dashboard' => 'pages#dashboard', as: 'dashboard'
 
   resources :grants
-
-
   resources :organizations
   
   get '/signup' => 'organizations#new', as: 'signup'
@@ -17,10 +16,6 @@ GrantTracker::Application.routes.draw do
 
   get 'login' => 'user_sessions#new', :as => :login
   post 'logout' => 'user_sessions#destroy', :as => :logout
-
-
-
-
 
 
   # The priority is based upon order of creation:
