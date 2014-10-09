@@ -1,5 +1,5 @@
 class Task < ActiveRecord::Base
-  attr_accessible :description, :due, :name, :file, :image
+  attr_accessible :description, :due, :name,  :image
   
   belongs_to :user
   belongs_to :grant

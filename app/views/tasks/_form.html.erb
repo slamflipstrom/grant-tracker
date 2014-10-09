@@ -25,15 +25,8 @@
       <%= t.label :name %><br />
       <%= t.text_field :name %>
     </div>
-    <div class="field">
-      <%= t.label :file %><br />
-      <%= t.file_field :file %>
-    </div>
   
-  <% end %>
-  <div class="actions">
-    <%= f.submit "Create Task" %>
-  </div>
+ 
 
   <%= direct_upload_form_for @uploader do |g| %>
     <p><%= g.file_field :image %></p>
