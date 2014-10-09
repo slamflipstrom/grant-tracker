@@ -1,0 +1,6 @@
+<h1>Hi <%= @user.name %>, you've been added to <%= @user.organization.name %>!</h1>
+
+<p>View the dashboard to see assigned tasks</p>
+
+<p><%= link_to "Edit Your Profile", edit_user_url(@user) %></p>
+<p><%= link_to "View Organization Dashboard", dashboard_path %></p>

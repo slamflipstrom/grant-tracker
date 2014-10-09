@@ -82,8 +82,9 @@ class OrganizationsController < ApplicationController
       if @user.save
         # Sets Organization's first user to admin.
         @user.update_attribute('organization_id', current_user.organization_id)
+        UserMailer.registration_confirmation(@user).deliver
         
-        format.html { redirect_to organizations_path, notice: 'User was successfully created.' }
+        format.html { redirect_to dashboard_path, notice: 'User was successfully created.' }
         format.json { render json: @organization, status: :created, location: @organization }
       else
         format.html { render action: "new" }
