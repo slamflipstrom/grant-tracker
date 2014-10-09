@@ -44,8 +44,12 @@ group :development, :test do
 end
 
 gem 'carrierwave'
+gem 'fog', '~> 1.3.1'
+gem 'carrierwave_direct'
+gem 'sidekiq'
 gem 'dotenv-rails', :groups => [:development, :test]
 gem 'delayed_job_active_record'
 gem 'rmagick', require: false
-
+gem "mini_magick"
+gem 'aws-sdk'
 gem 'sorcery'

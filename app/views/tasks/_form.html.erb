@@ -23,11 +23,11 @@
     <%= f.label :name %><br />
     <%= f.text_field :name %>
   </div>
-  <div class="field">
-    <%= f.label :file %><br />
-    <%= f.file_field :file %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+
+
+  <%= direct_upload_form_for @uploader do |g| %>
+    <p><%= g.file_field :image %></p>
+    <p><%= g.submit "Save" %></p>
+  <% end %>
 <% end %>
+
