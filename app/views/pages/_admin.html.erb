@@ -3,16 +3,23 @@
 <h3><%= @org.name %>'s Users</h3>
 
 <ul>
-  <% @users.each do |user| %>
+  <% @org.users.each do |user| %>
     <%= content_tag_for :li, user do %>
       <%= user.name %>
     <% end %>
   <% end %>
 </ul>
-<br />
- 
 
 
-<%= link_to "Add New User to #{@org.name}", org_user_path %> |
+ <ul>
+   <% @org.tasks.each do |task| %>
+     <%= content_tag_for :li, task do %>
+       <%= "Task: #{task.name}" %> <%= task.due %>
+     <% end %>
+   <% end %>
+ </ul>
 
-<%= link_to "New Grant", new_grant_path %> | <%= link_to 'Edit', edit_organization_path(@org.id) %> |
+
+<%= link_to "Add New User to #{@org.name}", org_user_path %> <br />
+
+<%= link_to "New Grant", new_grant_path %> | <%= link_to 'Edit', edit_organization_path(@org.id) %>

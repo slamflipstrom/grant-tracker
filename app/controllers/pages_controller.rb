@@ -5,8 +5,7 @@ class PagesController < ApplicationController
   end
   
   def dashboard
-    @org = Organization.includes([:grants, :tasks]).find_by_id(current_user.organization_id)
-    @users = User.where(organization_id: (params[:id]))
+    @org = Organization.includes([:grants, :tasks, :users]).find_by_id(current_user.organization_id)
     
   end
 end
