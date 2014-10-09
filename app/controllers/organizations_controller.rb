@@ -17,7 +17,7 @@ class OrganizationsController < ApplicationController
 
   # GET /organizations/1/edit
   def edit
-    @organization = Organization.find(params[:id])
+    @organization = Organization.find_by_id(current_user.organization_id)
   end
 
   # POST /organizations
@@ -45,7 +45,7 @@ class OrganizationsController < ApplicationController
   # PUT /organizations/1
   # PUT /organizations/1.json
   def update
-    @organization = Organization.find(params[:id])
+    @organization = Organization.find_by_id(current_user.organization_id)
 
     respond_to do |format|
       if @organization.update_attributes(params[:organization])
@@ -61,7 +61,7 @@ class OrganizationsController < ApplicationController
   # DELETE /organizations/1
   # DELETE /organizations/1.json
   def destroy
-    @organization = Organization.find(params[:id])
+    @organization = Organization.find_by_id(current_user.organization_id)
     @organization.destroy
 
     respond_to do |format|

@@ -2,8 +2,9 @@ GrantTracker::Application.routes.draw do
  
   root :to => 'pages#index'
   get '/dashboard' => 'pages#dashboard', as: 'dashboard'
-  get '/new_user' => 'organizations#new_user', as: 'org_user'
-
+  get '/new' => 'organizations#new_user', as: 'org_user'
+  
+  get '/edit' => 'organizations#edit', as: 'edit_org'
   resources :grants
   resources :organizations
   
