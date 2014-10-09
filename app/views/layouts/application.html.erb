@@ -13,19 +13,18 @@
   <nav>
     <ul>
       <li><%= link_to "Home", root_path %></li>
+      <% if current_user %>
+        <li><%= link_to "Edit Profile", edit_user_path(current_user.id) %></li>
+        <li><%= link_to "Logout", :logout, method: :post %></li>
+      <% else %>
+       <li> <%= link_to "Signup", signup_path %> |</li>
+       <li> <%= link_to "Login", :login %></li>
+      <% end %>
     </ul>
   </nav>
 </header>
 
-  <div id="nav">
-    <% if current_user %>
-      <%= link_to "Edit Profile", edit_user_path(current_user.id) %>
-      <%= link_to "Logout", :logout, method: :post %>
-    <% else %>
-      <%= link_to "Signup", signup_path %> |
-      <%= link_to "Login", :login %>
-    <% end %>
-  </div>
+ 
  
   <div>
     <p id="notice"><%= flash[:notice] %></p>

@@ -2,6 +2,16 @@
 @import "modules";
 @import "layout";
 
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
 body{
   color: $black;
   background-color: $bckg-color;
@@ -9,16 +19,18 @@ body{
   
 }
 
-h1{
- @extend %h;
+header{
+ @extend %header;
  @extend %sans-serif;
  display:inline-block;
 }
 
 a {
   color: $purple;
+  text-decoration: none;
 }
-#container{
-  width: 300px;
-  margin: 0 auto
+
+nav ul li {
+  display: inline-block;
+  padding-left:20px;
 }
