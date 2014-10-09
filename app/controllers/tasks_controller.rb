@@ -2,7 +2,9 @@ class TasksController < ApplicationController
   # GET /tasks
   # GET /tasks.json
   def index
-    @tasks = Task.all
+    @tasks = Task.includes(:grant).where("grants.organization_id = #{current_user.organization_id}")
+    @uploader = Task.new.image
+    @uploader.success_action_redirect = new_task_url
 
     respond_to do |format|
       format.html # index.html.erb
@@ -25,6 +27,9 @@ class TasksController < ApplicationController
   # GET /tasks/new.json
   def new
     @task = Task.new
+    @grant = Grant.find_by_id(params[:id])
+    @grant.tasks.build
+    
     @uploader = Task.new.image
     @uploader.success_action_redirect = new_task_url
 

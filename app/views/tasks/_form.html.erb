@@ -1,5 +1,5 @@
-<%= form_for @task, :html => {:multipart => true}  do |f| %>
-  <% if @task.errors.any? %>
+<%= form_for @grant, :html => {:multipart => true}  do |f| %>
+  <% if @grant.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@task.errors.count, "error") %> prohibited this task from being saved:</h2>
 
@@ -10,24 +10,35 @@
       </ul>
     </div>
   <% end %>
+  
+  <%= f.fields_for :tasks do |t| %>
 
-  <div class="field">
-    <%= f.label :description %><br />
-    <%= f.text_field :description %>
+    <div class="field">
+      <%= t.label :description %><br />
+      <%= t.text_field :description %>
+    </div>
+    <div class="field">
+      <%= t.label :due %><br />
+      <%= t.text_field :due %>
+    </div>
+    <div class="field">
+      <%= t.label :name %><br />
+      <%= t.text_field :name %>
+    </div>
+    <div class="field">
+      <%= t.label :file %><br />
+      <%= t.file_field :file %>
+    </div>
+  
+  <% end %>
+  <div class="actions">
+    <%= f.submit "Create Task" %>
   </div>
-  <div class="field">
-    <%= f.label :due_date %><br />
-    <%= f.text_field :due_date %>
-  </div>
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-
 
   <%= direct_upload_form_for @uploader do |g| %>
     <p><%= g.file_field :image %></p>
     <p><%= g.submit "Save" %></p>
   <% end %>
+
 <% end %>
 

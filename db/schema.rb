@@ -34,12 +34,12 @@ ActiveRecord::Schema.define(:version => 20141008165100) do
 
   create_table "tasks", :force => true do |t|
     t.string   "name"
-    t.string   "due_date"
     t.text     "description"
     t.integer  "user_id"
     t.integer  "grant_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.datetime "due"
     t.string   "image"
   end
 

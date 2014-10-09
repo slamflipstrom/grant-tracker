@@ -1,11 +1,15 @@
 GrantTracker::Application.routes.draw do
  
+  root :to => 'pages#index'
+
   resources :grants
 
 
   resources :organizations
-
-
+  
+  get '/signup' => 'organizations#new', as: 'signup'
+  get '/organizations/:id/new-user' => 'organizations#new-user', as: 'organization_user'
+  
   root :to => 'users#index'
   resources :user_sessions
   resources :users

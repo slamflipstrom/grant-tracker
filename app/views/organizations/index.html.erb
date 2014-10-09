@@ -8,7 +8,7 @@
     <th></th>
   </tr>
 
-<% @organizations.each do |organization| %>
+<% @org.each do |organization| %>
   <tr>
     <td><%= organization.name %></td>
     <td><%= link_to 'Show', organization %></td>
@@ -20,4 +20,4 @@
 
 <br />
 
-<%= link_to 'New Organization', new_organization_path %>
+

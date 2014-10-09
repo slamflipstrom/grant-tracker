@@ -21,4 +21,23 @@
 
 <br />
 
+<%= link_to 'New Grant', new_grant_path %>
+
+
+<% @grants.each do |grant| %>
+  <ul>
+    <li><%= grant.name %></li>
+      <ul>
+        <% grant.tasks.each do |task| %>
+          <li><%= task.name %></li>
+        <% end %>
+      </ul>
+  </ul>
+  
+<% end %>
+
+<%= direct_upload_form_for @uploader do |f| %>
+  <p><%= f.file_field :image %></p>
+  <p><%= f.submit "Save" %></p>
+<% end %>
 <%= link_to 'Add a New Grant', new_grant_path %>

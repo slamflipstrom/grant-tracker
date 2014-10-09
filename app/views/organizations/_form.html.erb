@@ -12,9 +12,33 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br />
+    <%= f.label :name, "Organization Name" %><br />
     <%= f.text_field :name %>
   </div>
+  
+    <%= f.fields_for :users do |d| %>
+      
+      <div class="field">
+        <%= d.label :name, "Your Name" %><br />
+        <%= d.text_field :name %>
+      </div>
+      
+      <div class="field">
+        <%= d.label :email %><br />
+        <%= d.text_field :email %>
+      </div>
+      
+      <div class="field">
+        <%= d.label :password %><br />
+        <%= d.text_field :password %>
+      </div>
+      
+      <div class="field">
+        <%= d.label :password_confirmation %><br />
+        <%= d.text_field :password_confirmation %>
+      </div>
+    <% end %>
+  
   <div class="actions">
     <%= f.submit %>
   </div>
