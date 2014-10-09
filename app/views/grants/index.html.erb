@@ -36,8 +36,5 @@
   
 <% end %>
 
-<%= direct_upload_form_for @uploader do |f| %>
-  <p><%= f.file_field :image %></p>
-  <p><%= f.submit "Save" %></p>
-<% end %>
+
 <%= link_to 'Add a New Grant', new_grant_path %>
