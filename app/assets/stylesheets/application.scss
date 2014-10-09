@@ -1,0 +1,11 @@
+@import "settings";
+@import "modules";
+
+body{
+  color: $black;
+  background-color: $bckg-color;
+}
+
+h1{
+ @extend %h;
+}
