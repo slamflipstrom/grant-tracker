@@ -1,5 +1,5 @@
 <h2>ADMIN DASH</h2>
 
-<%= link_to "Add New User to #{@org[0][:name]}", new_user_path %>
+<%= link_to "Add New User to #{@org[0][:name]}", organization_user_path %> |
 
-<%= link_to "New Grant", new_grant_path %>
+<%= link_to "New Grant", new_grant_path %> | <%= link_to 'Edit', edit_organization_path(@organization) %> |
