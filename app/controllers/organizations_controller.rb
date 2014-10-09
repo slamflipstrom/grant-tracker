@@ -3,8 +3,7 @@ class OrganizationsController < ApplicationController
   # GET /organizations
   # GET /organizations.json
   def index
-    @org = Organization.includes(:grants).where(id: current_user.organization_id)    
-
+    @org = Organization.includes(:grants).where(id: current_user.organization_id)   
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @organizations }
