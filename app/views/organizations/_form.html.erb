@@ -18,7 +18,7 @@
   
     <%= f.fields_for :users do |d| %>
       
-      <fieldset>
+    
         <div class="field">
           <%= d.label :name, "Your Name" %><br />
           <%= d.text_field :name %>
@@ -38,7 +38,7 @@
           <%= d.label :password_confirmation %><br />
           <%= d.password_field :password_confirmation %>
         </div>
-      </fieldset>
+      
     <% end %>
   
   <div class="actions">

@@ -3,7 +3,6 @@ class Task < ActiveRecord::Base
   
   belongs_to :user
   belongs_to :grant
-  belongs_to :organization
-  
+ 
   mount_uploader :image, ImageUploader
 end
