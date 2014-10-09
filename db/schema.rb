@@ -39,7 +39,6 @@ ActiveRecord::Schema.define(:version => 20141008165100) do
     t.integer  "grant_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
-    t.string   "file"
     t.datetime "due"
     t.string   "image"
   end
