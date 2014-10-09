@@ -1,11 +1,24 @@
 @import "settings";
 @import "modules";
+@import "layout";
 
 body{
   color: $black;
   background-color: $bckg-color;
+   @extend %serif;
+  
 }
 
 h1{
  @extend %h;
+ @extend %sans-serif;
+ display:inline-block;
+}
+
+a {
+  color: $purple;
+}
+#container{
+  width: 300px;
+  margin: 0 auto
 }
