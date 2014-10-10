@@ -2,6 +2,12 @@ class TasksController < ApplicationController
 
   # GET /tasks/1
   # GET /tasks/1.json
+  def index
+    @tasks = Task.all
+    @uploader = Task.new.image
+    @uploader.success_action_redirect = new_task_url
+  end
+ 
   def show
     @task = Task.find(params[:id])
 
@@ -15,6 +21,7 @@ class TasksController < ApplicationController
   # GET /tasks/new.json
   def new
     @grant = Grant.find_by_id(params[:id])
+    @task = Task.new(key: params[:key])
     # @grant.tasks.build
     
     @uploader = Task.new.image
