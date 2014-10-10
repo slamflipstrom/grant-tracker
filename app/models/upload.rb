@@ -1,5 +1,5 @@
 class Upload < ActiveRecord::Base
-  attr_accessible  :name
+  attr_accessible  :name, :image
   
   belongs_to :grant
   
