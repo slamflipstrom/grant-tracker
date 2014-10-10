@@ -1,0 +1,14 @@
+<h4>Assign User to a task:</h4>
+
+<ul>
+<% @org.tasks.each do |task| %>
+  <%= radio_button_tag 'task', task.id %>
+    <%= label_tag 'task', task.name %> ---
+    <%= label_tag task.description %><br/>    
+<% end %>
+</ul>
+
+<div class="actions">
+  <%= submit_tag "Assign", :id=> "some_id" %>
+</div>
+<br/> 

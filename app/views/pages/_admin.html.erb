@@ -5,21 +5,11 @@
 <ul>
   <% @org.users.each do |user| %>
     <%= content_tag_for :li, user do %>
-      <%= user.name %>
+      <%= link_to user.name, user_path(user.id)%>
     <% end %>
   <% end %>
 </ul>
 
-<h3>All Tasks</h3>
-
- <ul>
-   <% @org.tasks.each do |task| %>
-     <%= content_tag_for :li, task do %>
-       <%= link_to task.name, task_path(task.id) %>, Due: <%= if task.due then task.due.strftime("%m/%d/%Y") else "None" end %>
-     <% end %>
-   <% end %>
- </ul>
- 
 <h3>All Grants</h3>
  
  <ul>
@@ -30,6 +20,15 @@
    <% end %>
  </ul>
 
+<h3>All Tasks</h3>
+
+ <ul>
+   <% @org.tasks.each do |task| %>
+     <%= content_tag_for :li, task do %>
+       <%= link_to task.name, task_path(task.id)%>, Due: <%= if task.due then task.due.strftime("%m/%d/%Y") else "None" end %>
+     <% end %>
+   <% end %>
+ </ul>
 
 <%= link_to "Add New User to #{@org.name}", org_user_path %> <br />
 

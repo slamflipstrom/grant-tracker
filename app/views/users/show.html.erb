@@ -5,5 +5,17 @@
   <%= @user.email %>
 </p>
 
+<h4>User is currently assigned to the following tasks:</h4>
+
+<% @user.tasks do |task| %>
+
+<%= task.name --- task.due %>
+
+<% end %>
+
+<% if current_user.admin && @org.tasks != nil%>
+<%= render 'admin_user_form' %> 
+<% end %>
+
 <%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<%= link_to 'Back', dashboard_path %>
