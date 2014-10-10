@@ -28,8 +28,6 @@ class GrantsController < ApplicationController
     # Only allows admin to create new grants.
     if current_user.admin == true
       @grant = Grant.new
-      @uploader = Grant.new.image
-      @uploader.success_action_redirect = grants_url
 
       respond_to do |format|
         format.html # new.html.erb

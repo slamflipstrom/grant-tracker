@@ -14,9 +14,8 @@ class TasksController < ApplicationController
   # GET /tasks/new
   # GET /tasks/new.json
   def new
-    @task = Task.new
     @grant = Grant.find_by_id(params[:id])
-    @grant.tasks.build
+    # @grant.tasks.build
     
     @uploader = Task.new.image
     @uploader.success_action_redirect = new_task_url
@@ -29,7 +28,10 @@ class TasksController < ApplicationController
 
   # GET /tasks/1/edit
   def edit
-    @task = Task.find(params[:id])
+    @task = Task.find_by_id(params[:id])
+    
+    @uploader = Task.new.image
+    @uploader.success_action_redirect = new_task_url
   end
 
   # POST /tasks
@@ -51,7 +53,8 @@ class TasksController < ApplicationController
   # PUT /tasks/1
   # PUT /tasks/1.json
   def update
-    @task = Task.find(params[:id])
+    @task = Task.find_by_id(params[:id])
+    @grant = Grant.find_by_id(@task.grant_id)
 
     respond_to do |format|
       if @task.update_attributes(params[:task])
@@ -75,4 +78,11 @@ class TasksController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  def assign
+    @task = Task.find(params[:id])
+    
+    
+  end
+  
 end

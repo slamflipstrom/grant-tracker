@@ -53,3 +53,4 @@ gem 'rmagick', require: false
 gem "mini_magick"
 gem 'aws-sdk'
 gem 'sorcery'
+gem 'chronic'
