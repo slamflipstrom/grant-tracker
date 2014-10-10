@@ -4,14 +4,12 @@ class TasksController < ApplicationController
   # GET /tasks/1.json
   def index
     @tasks = Task.all
-    @uploader = Task.new.image
-    @uploader.success_action_redirect = new_task_url
+  
   end
  
   def show
     @task = Task.find(params[:id])
-    @uploader = Task.new.image
-    @uploader.success_action_redirect = task_url
+  
 
     respond_to do |format|
       format.html # show.html.erb
@@ -35,9 +33,7 @@ class TasksController < ApplicationController
   def edit
     @task = Task.find_by_id(params[:id])
     
-    @uploader = Task.new.image
-    @uploader.success_action_redirect = new_task_url
-  end
+   
 
   # POST /tasks
   # POST /tasks.json
@@ -58,12 +54,12 @@ class TasksController < ApplicationController
   # PUT /tasks/1
   # PUT /tasks/1.json
   def update
-    @task = Task.find_by_id(params[:id])
+    @task = Task.find(params[:id])
     @grant = Grant.find_by_id(@task.grant_id)
 
     respond_to do |format|
       if @task.update_attributes(params[:task])
-        format.html { redirect_to @task, notice: 'Task was successfully updated.' }
+        format.html { redirect_to tasks_path, notice: 'Task was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -87,4 +83,5 @@ class TasksController < ApplicationController
   def assign
     @task = Task.find(params[:id])
   end
+end
 end

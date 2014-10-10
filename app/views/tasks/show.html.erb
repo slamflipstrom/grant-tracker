@@ -14,9 +14,6 @@
   <b>Name:</b>
   <%= @task.name %>
 </p>
-  <%= direct_upload_form_for @uploader do |spaceship| %>
-    <p><%= spaceship.file_field :image %></p>
-    <p><%= spaceship.submit "Save" %></p>
-  <% end %>
+  
 
 <%= link_to 'Edit', edit_task_path(@task.id) %>
