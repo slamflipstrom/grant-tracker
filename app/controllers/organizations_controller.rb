@@ -33,7 +33,7 @@ class OrganizationsController < ApplicationController
         # Auto logs in Organization's first user upon creation.
         auto_login(@organization.users.first)
         
-        format.html { redirect_to organizations_path, notice: 'Organization was successfully created.' }
+        format.html { redirect_to dashboard_path, notice: 'Organization was successfully created.' }
         format.json { render json: @organization, status: :created, location: @organization }
       else
         format.html { render action: "new" }
