@@ -1,14 +1,16 @@
 <h4>Assign User to a task:</h4>
 
 <ul>
+<%= form_tag({:controller => 'tasks', :action => 'assign'}, method: :put) do %>
 <% @org.tasks.each do |task| %>
-  <%= radio_button_tag 'task', task.id %>
+  <%= check_box_tag 'task[]', task.id, @user.tasks.include?(task) %>
     <%= label_tag 'task', task.name %> ---
     <%= label_tag task.description %><br/>    
 <% end %>
 </ul>
 
 <div class="actions">
-  <%= submit_tag "Assign", :id=> "some_id" %>
+  <%= submit_tag "Update" %>
 </div>
 <br/> 
+<% end %>

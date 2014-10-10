@@ -80,6 +80,18 @@ class TasksController < ApplicationController
   end
   
   def assign
-    @task = Task.find(params[:id])
+    @task = Task.find(params[:task])
+    @tasks.assign_user(params[:id])
+    binding.pry
+    
+    respond_to do |format|
+      if @task.update_attribute('user_id', params[:id])
+        format.html { redirect_to @task, notice: 'Task was successfully updated.' }
+        format.json { head :no_content }
+      else
+        format.html { render action: "edit" }
+        format.json { render json: @task.errors, status: :unprocessable_entity }
+      end
+    end
   end
 end

@@ -7,9 +7,9 @@
 
 <h4>User is currently assigned to the following tasks:</h4>
 
-<% @user.tasks do |task| %>
+<% @user.tasks.each do |task| %>
 
-<%= task.name --- task.due %>
+<p><%= task.name %></p>
 
 <% end %>
 
