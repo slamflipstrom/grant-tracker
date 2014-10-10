@@ -45,12 +45,9 @@ end
 
 gem 'carrierwave'
 gem 'fog'
-gem 'carrierwave_direct'
-gem 'sidekiq'
 gem 'dotenv-rails', :groups => [:development, :test]
 gem 'delayed_job_active_record'
 gem 'rmagick', require: false
 gem "mini_magick"
-gem 'aws-sdk'
 gem 'sorcery'
 gem 'chronic'
