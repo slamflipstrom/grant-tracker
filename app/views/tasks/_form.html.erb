@@ -1,36 +1,34 @@
 <%= form_for @grant, :html => {:multipart => true}  do |f| %>
   <% if @grant.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@task.errors.count, "error") %> prohibited this task from being saved:</h2>
+      <h2><%= pluralize(@grant.errors.count, "error") %> prohibited this task from being saved:</h2>
 
       <ul>
-      <% @task.errors.full_messages.each do |msg| %>
+      <% @grant.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>
     </div>
   <% end %>
-  
-  <%= f.fields_for :tasks do |t| %>
 
+  <%= f.fields_for :tasks, @grant.tasks.build do |t| %>
     <div class="field">
       <%= t.label :description %><br />
       <%= t.text_field :description %>
     </div>
     <div class="field">
-      <%= t.label :due %><br />
-      <%= t.text_field :due %>
+      <%= t.label :due_date %><br />
+      <%= t.text_field :due_date %>
     </div>
     <div class="field">
       <%= t.label :name %><br />
       <%= t.text_field :name %>
     </div>
   
- 
-
-  <%= direct_upload_form_for @uploader do |g| %>
-    <p><%= g.file_field :image %></p>
-    <p><%= g.submit "Save" %></p>
+    <%= direct_upload_form_for @uploader do |g| %>
+      <p><%= g.file_field :image %></p>
+      <p><%= g.submit "Save" %></p>
+    <% end %>
   <% end %>
 
 <% end %>

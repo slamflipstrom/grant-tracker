@@ -1,12 +1,6 @@
-<p id="notice"><%= notice %></p>
-
 <p>
   <b>Name:</b>
   <%= @grant.name %>
-  <%= @grant.image %>
-  
 </p>
 
-
-<%= link_to 'Edit', edit_grant_path(@grant) %> |
-<%= link_to 'Back', grants_path %>
+<%= link_to "Add Task", org_task_path(@grant.id) %>

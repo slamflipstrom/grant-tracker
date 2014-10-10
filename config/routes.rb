@@ -2,19 +2,24 @@ GrantTracker::Application.routes.draw do
  
   root :to => 'pages#index'
   get '/dashboard' => 'pages#dashboard', as: 'dashboard'
-  get '/new_user' => 'organizations#new_user', as: 'org_user'
-
-  resources :grants
-  resources :organizations
+  
+  get '/new/user' => 'organizations#new_user', as: 'org_user'
+  get '/new/grant' => 'grants#new', as: 'org_grant'
+  get '/new/:id/task' => 'tasks#new', as: 'org_task'
+  
+  get '/edit' => 'organizations#edit', as: 'edit_org'
   
   get '/signup' => 'organizations#new', as: 'signup'
   get '/organizations/:id/new_user' => 'organizations#new_user', as: 'organization_user'
   post '/users' => 'organizations#create_user'
   
   root :to => 'users#index'
+  
   resources :user_sessions
-  resources :users
-  resources :tasks
+  resources :users, path: 'user'
+  resources :tasks, path: 'task'
+  resources :grants, path: 'grant'
+  resources :organizations, path: 'organization'
 
   get 'login' => 'user_sessions#new', :as => :login
   post 'logout' => 'user_sessions#destroy', :as => :logout
