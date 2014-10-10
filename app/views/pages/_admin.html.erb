@@ -5,32 +5,39 @@
 <ul>
   <% @org.users.each do |user| %>
     <%= content_tag_for :li, user do %>
-      <%= user.name %>
+      <%= link_to user.name, user_path(user.id) %>
     <% end %>
   <% end %>
 </ul>
 
-<h3>All Tasks</h3>
+ <h3>Upcoming Deadlines</h3>
 
- <ul>
-   <% @org.tasks.each do |task| %>
-     <%= content_tag_for :li, task do %>
-       <%= link_to task.name, task_path(task.id) %>, Due: <%= if task.due then task.due.strftime("%m/%d/%Y") else "None" end %>
-     <% end %>
-   <% end %>
- </ul>
- 
+  <ul class='dash-ul'>
+    <% @due.each do |task| %>
+      <%= content_tag_for :li, task, class: 'dash-li' do %>
+        <%= link_to task.name, task_path(task.id), class: 'dash-link' %>
+        <p class="task-due"><%= if task.due then task.due.strftime("%m/%d/%Y") else "None" end %></p>
+      <% end %>
+    <% end %>
+  </ul>
+
 <h3>All Grants</h3>
  
- <ul>
+ <ul class='dash-ul'>
    <% @org.grants.each do |grant| %>
-     <%= content_tag_for :li, grant do %>
-       <%= link_to grant.name, grant_path(grant.id) %> 
+     <%= content_tag_for :li, grant, class: 'dash-li' do %>
+       <%= link_to grant.name, grant_path(grant.id), class: 'dash-link' %>
      <% end %>
    <% end %>
  </ul>
 
+<h3>All Tasks</h3>
 
-<%= link_to "Add New User to #{@org.name}", org_user_path %> <br />
-
-<%= link_to "New Grant", new_grant_path %> | <%= link_to 'Edit', edit_org_path %>
+ <ul class='dash-ul'>
+   <% @tasks.each do |task| %>
+     <%= content_tag_for :li, task, class: 'dash-li' do %>
+       <%= link_to task.name, task_path(task.id), class: 'dash-link' %>
+       <p class="task-due"><%= if task.due then task.due.strftime("%m/%d/%Y") else "None" end %></p>
+     <% end %>
+   <% end %>
+ </ul>

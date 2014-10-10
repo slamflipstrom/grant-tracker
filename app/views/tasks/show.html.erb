@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-
-
-=======
->>>>>>> 5b9db9ddd8930c65c3c18207ad447a65a1a37bb7
 <p>
   <b>Description:</b>
   <%= @task.description %>
@@ -18,4 +13,16 @@
   <%= @task.name %>
 </p>
 
+<p>
+  <% if @task.user %>
+    <b>Assigned to:</b> <%= @task.user.name %>
+  <% else %>
+    <b>Assigned to:</b> No one
+  <% end %>
+</p>
+
+<%= form_tag({action: 'assign', controller: 'tasks'}, method: :put) do %>
+  <%= collection_select(:task, :user_id, @users, :id, :name) %>
+  <%= submit_tag "Assign Task" %> 
+<% end %>
 <%= link_to 'Edit', edit_task_path(@task.id) %>

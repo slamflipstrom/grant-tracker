@@ -5,6 +5,8 @@ class Organization < ActiveRecord::Base
   has_many :grants
   has_many :tasks, :through => :grants
   
+  validates :name, presence: true
+  
   accepts_nested_attributes_for :users
   accepts_nested_attributes_for :grants
   

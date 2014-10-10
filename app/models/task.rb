@@ -4,6 +4,9 @@ class Task < ActiveRecord::Base
   belongs_to :user
   belongs_to :grant
  
+ validates :name, presence: true
+ scope :due_soon, lambda { where(:due => Time.now..(Time.now + 1.week)) }
+ 
   mount_uploader :image, ImageUploader
   
   def due_date
@@ -12,6 +15,10 @@ class Task < ActiveRecord::Base
   
   def due_date=(date)
     self.due = Chronic.parse(date) if date.present?
+  end
+  
+  def assign_task(user_id)
+    
   end
   
 end

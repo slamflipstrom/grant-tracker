@@ -5,6 +5,7 @@ class Grant < ActiveRecord::Base
   belongs_to :organization
   has_many :uploads
   
+  validates :name, presence: true
 
   mount_uploader :image, ImageUploader
 

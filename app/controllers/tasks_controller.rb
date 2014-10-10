@@ -4,6 +4,7 @@ class TasksController < ApplicationController
   # GET /tasks/1.json
   def show
     @task = Task.find(params[:id])
+    @users = User.where(organization_id: current_user.organization_id)
 
     respond_to do |format|
       format.html # show.html.erb
@@ -79,10 +80,23 @@ class TasksController < ApplicationController
     end
   end
   
-  def assign
-    @task = Task.find(params[:id])
+  def assign_user
+    @tasks = Task.find(params[:id])
+    # @tasks.assign_user(params[:id])
     
+    # @tasks.each do |t|
+    #   t.update_attribute('user_id', params[:id])
+    # end
     
+    respond_to do |format|
+      if @task.update_attribute('user_id', params[:task][:user_id])
+        format.html { redirect_to task_path(@task.id), notice: 'Task was successfully updated.' }
+        format.json { head :no_content }
+      else
+        format.html { render action: "edit" }
+        format.json { render json: @task.errors, status: :unprocessable_entity }
+      end
+    end
   end
   
 end

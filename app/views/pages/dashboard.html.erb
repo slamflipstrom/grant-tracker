@@ -1,6 +1,10 @@
+<% if current_user.admin %>
+  <%= render 'admin_nav' %> 
+<% end %>
+
 <%= render 'dash' %>
 
 <% if current_user.admin %>
-<%= render 'admin' %> 
+  <%= render 'admin' %> 
 <% end %>
 

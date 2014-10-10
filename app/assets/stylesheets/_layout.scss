@@ -1,1 +1,70 @@
+.main, .container {
+ width: 100%;
+ margin: auto;
+}
 
+header {
+  float: left;
+  width: 100%;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+}
+
+.header-nav-ul {
+  margin-left: 10px;
+  float: right;
+}
+
+h1 {
+  text-align: center;
+}
+
+select {
+  width: 100%;
+  padding: 5px;
+}
+
+.header-nav-link {
+  @extend %ul_link;
+}
+
+.admin-nav-ul {
+  @extend %cf;
+  @extend %fake_ul;
+}
+
+.admin-nav-link {
+  @extend %ul_link;
+}
+
+input {
+  @extend %inputs;
+}
+
+input[type=submit] {
+  @extend %submit;
+}
+
+.dash-ul {
+  @extend %dash_ul;
+  width: 100%;
+}
+
+.dash-li {
+  padding: 10px;
+  margin: 5px;
+}
+
+.dash-link {
+  @extend %cf;
+  display: block;
+}
+
+.task-due {
+  margin: 0;
+  padding: 0;
+  float: right;
+  position: relative;
+  right: 0;
+  top: -20px;
+}

@@ -2,48 +2,57 @@
 @import "modules";
 @import "layout";
 
-*,
-*:before,
-*:after {
-  box-sizing: border-box;
-}
-.clearfix:after {
-  content: "";
-  display: table;
-  clear: both;
-}
 body{
   color: $black;
-  background-color: $bckg-color;
-   @extend %serif;
-  
+  background-color: $bg-color;
+  @extend %serif;
 }
 
 header{
  @extend %header;
  @extend %sans-serif;
-
 }
 
 a {
   color: $purple;
   text-decoration: none;
-  padding:10px;
-  
-  
 }
 
-nav ul li {
-  display: inline-block;
-  
+a:hover {
+  color: $blue;
 }
 
-#container{
-  width: 100%;
-  margin: 0 auto;
- 
-}
-
-h1{
+select {
+  background: white;
   font-size: 20px;
+}
+
+.header-nav-ul {
+  @extend %fake_ul;
+}
+
+h1 {
+  font-size: 25px;
+  color: $red;
+  text-transform: uppercase;
+}
+
+h2 {
+  font-size: 20px;
+}
+
+.dash-li {
+  background: $purple;
+}
+
+.dash-ul li:hover {
+  background: $red;
+}
+
+.dash-li a {
+  color: $blue;
+}
+
+.dash-li a:hover {
+  color: black;
 }

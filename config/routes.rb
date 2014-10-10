@@ -13,6 +13,8 @@ GrantTracker::Application.routes.draw do
   get '/organizations/:id/new_user' => 'organizations#new_user', as: 'organization_user'
   post '/users' => 'organizations#create_user'
   
+  put '/task/:id' => 'tasks#assign'
+  
   root :to => 'users#index'
   
   resources :user_sessions

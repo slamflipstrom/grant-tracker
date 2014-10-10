@@ -1,7 +1,17 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
 $black: #21242E;
 $blue: #374C94;
-$purple:#B8BFD4;
+$purple: #B8BFD4;
 $red: #BD959A;
 
-
-$bckg-color:#FFFFFF;
+$bg-color:#FFFFFF;
