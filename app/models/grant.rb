@@ -8,5 +8,5 @@ class Grant < ActiveRecord::Base
   
   has_many :uploads
   
-  
+  mount_uploader :image, ImageUploader
 end
