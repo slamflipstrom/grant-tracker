@@ -12,6 +12,11 @@
   <% end %>
 
   <%= f.fields_for :tasks, @grant.tasks.build do |t| %>
+
+    <div class="field">
+      <%= t.label :name %><br />
+      <%= t.text_field :name %>
+    </div>
     <div class="field">
       <%= t.label :description %><br />
       <%= t.text_field :description %>
@@ -19,10 +24,6 @@
     <div class="field">
       <%= t.label :due_date %><br />
       <%= t.text_field :due_date %>
-    </div>
-    <div class="field">
-      <%= t.label :name %><br />
-      <%= t.text_field :name %>
     </div>
   
     <%= direct_upload_form_for @uploader do |g| %>
