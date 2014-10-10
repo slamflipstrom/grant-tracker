@@ -33,7 +33,7 @@ class OrganizationsController < ApplicationController
         # Auto logs in Organization's first user upon creation.
         auto_login(@organization.users.first)
         
-        format.html { redirect_to organizations_path, notice: 'Organization was successfully created.' }
+        format.html { redirect_to dashboard_path, notice: 'Organization was successfully created.' }
         format.json { render json: @organization, status: :created, location: @organization }
       else
         format.html { render action: "new" }
@@ -49,7 +49,7 @@ class OrganizationsController < ApplicationController
 
     respond_to do |format|
       if @organization.update_attributes(params[:organization])
-        format.html { redirect_to @organization, notice: 'Organization was successfully updated.' }
+        format.html { redirect_to dashboard_path, notice: 'Organization was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -83,7 +83,7 @@ class OrganizationsController < ApplicationController
         # Sets Organization's first user to admin.
         @user.update_attribute('organization_id', current_user.organization_id)
         
-        format.html { redirect_to organizations_path, notice: 'User was successfully created.' }
+        format.html { redirect_to dashboard_path, notice: 'User was successfully created.' }
         format.json { render json: @organization, status: :created, location: @organization }
       else
         format.html { render action: "new" }

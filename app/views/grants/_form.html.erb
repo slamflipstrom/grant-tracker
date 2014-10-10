@@ -16,9 +16,7 @@
     <%= f.text_field :name %>
   </div>
   
-
-  <%= direct_upload_form_for @uploader do |g| %>
-    <p><%= g.file_field :image %></p>
-    <p><%= g.submit "Save" %></p>
-  <% end %>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
 <% end %>

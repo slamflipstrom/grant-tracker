@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 5b9db9ddd8930c65c3c18207ad447a65a1a37bb7
 <p>
   <b>Description:</b>
   <%= @task.description %>
@@ -7,7 +10,7 @@
 
 <p>
   <b>Due date:</b>
-  <%= @task.due_date %>
+  <%= if @task.due then @task.due_date else "None" end %>
 </p>
 
 <p>
@@ -15,11 +18,4 @@
   <%= @task.name %>
 </p>
 
-<p>
-  <b>File:</b>
-<%= image_tag @task.image_url.to_s %>
-</p>
-
-
-<%= link_to 'Edit', edit_task_path(@task) %> |
-<%= link_to 'Back', tasks_path %>
+<%= link_to 'Edit', edit_task_path(@task.id) %>
