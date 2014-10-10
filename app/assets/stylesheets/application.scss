@@ -22,22 +22,26 @@ body{
 header{
  @extend %header;
  @extend %sans-serif;
- display:inline-block;
+
 }
 
 a {
   color: $purple;
   text-decoration: none;
+  padding:10px;
+  
+  
 }
 
 nav ul li {
   display: inline-block;
-  padding-left:20px;
+  
 }
+
 #container{
-  width: 600px;
+  width: 100%;
   margin: 0 auto;
- padding:20px;
+ 
 }
 
 h1{
