@@ -1,5 +1,5 @@
 class Grant < ActiveRecord::Base
-  attr_accessible :name, :tasks_attributes, :uploads_attributes
+  attr_accessible :name, :tasks_attributes, :uploads_attributes, :image
   
   has_many :tasks
   belongs_to :organization
@@ -10,5 +10,4 @@ class Grant < ActiveRecord::Base
 
   accepts_nested_attributes_for :tasks
   accepts_nested_attributes_for :uploads
-
 end
