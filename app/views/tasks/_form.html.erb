@@ -25,12 +25,18 @@
       <%= t.label :due_date %><br />
       <%= t.text_field :due_date %>
     </div>
-  
-    <%= direct_upload_form_for @uploader do |g| %>
-      <p><%= g.file_field :image %></p>
-      <p><%= g.submit "Save" %></p>
-    <% end %>
+    
+    <div class="field">
+      <%= t.label :name %><br />
+      <%= t.text_field :name %>
+    </div>
+    
+
+    <p><%= t.file_field :image %></p>
+
   <% end %>
+  
+  <p><%= f.submit "Save" %></p>
 
 <% end %>
 

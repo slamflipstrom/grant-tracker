@@ -2,6 +2,11 @@ class TasksController < ApplicationController
 
   # GET /tasks/1
   # GET /tasks/1.json
+  def index
+    @tasks = Task.all
+  
+  end
+ 
   def show
     @task = Task.find(params[:id])
     @users = User.where(organization_id: current_user.organization_id)
@@ -18,9 +23,6 @@ class TasksController < ApplicationController
     @grant = Grant.find_by_id(params[:id])
     # @grant.tasks.build
     
-    @uploader = Task.new.image
-    @uploader.success_action_redirect = new_task_url
-
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @task }
@@ -31,9 +33,7 @@ class TasksController < ApplicationController
   def edit
     @task = Task.find_by_id(params[:id])
     
-    @uploader = Task.new.image
-    @uploader.success_action_redirect = new_task_url
-  end
+   
 
   # POST /tasks
   # POST /tasks.json
@@ -54,12 +54,12 @@ class TasksController < ApplicationController
   # PUT /tasks/1
   # PUT /tasks/1.json
   def update
-    @task = Task.find_by_id(params[:id])
+    @task = Task.find(params[:id])
     @grant = Grant.find_by_id(@task.grant_id)
 
     respond_to do |format|
       if @task.update_attributes(params[:task])
-        format.html { redirect_to @task, notice: 'Task was successfully updated.' }
+        format.html { redirect_to tasks_path, notice: 'Task was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -98,5 +98,20 @@ class TasksController < ApplicationController
       end
     end
   end
-  
+        
+  def assign
+    @task = Task.find(params[:task])
+    @tasks.assign_user(params[:id])
+    binding.pry
+    
+    respond_to do |format|
+      if @task.update_attribute('user_id', params[:id])
+        format.html { redirect_to @task, notice: 'Task was successfully updated.' }
+        format.json { head :no_content }
+      else
+        format.html { render action: "edit" }
+        format.json { render json: @task.errors, status: :unprocessable_entity }
+      end
+    end
+  end
 end

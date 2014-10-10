@@ -1,6 +1,7 @@
 <p>
   <b>Description:</b>
   <%= @task.description %>
+  <%= image_tag @task.image_url.to_s %>
 </p>
 
 <p>
@@ -12,6 +13,7 @@
   <b>Name:</b>
   <%= @task.name %>
 </p>
+  
 
 <p>
   <% if @task.user %>

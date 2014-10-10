@@ -17,6 +17,8 @@ GrantTracker::Application.routes.draw do
   
   root :to => 'users#index'
   
+  put '/task/:id' => 'tasks#assign'
+  
   resources :user_sessions
   resources :users, path: 'user'
   resources :tasks, path: 'task'

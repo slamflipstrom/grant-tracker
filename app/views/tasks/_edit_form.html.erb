@@ -25,10 +25,9 @@
       <%= f.text_field :due_date %>
     </div>
   
-    <%= direct_upload_form_for @uploader do |g| %>
-      <p><%= g.file_field :image %></p>
-      <p><%= g.submit "Save" %></p>
-    <% end %>
+
+   <p><%= f.file_field :image %></p>
+   <%= f.submit %>
 
 <% end %>
 
