@@ -10,5 +10,4 @@ class Grant < ActiveRecord::Base
 
   accepts_nested_attributes_for :tasks
   accepts_nested_attributes_for :uploads
-
 end
