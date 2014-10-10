@@ -40,8 +40,8 @@ ActiveRecord::Schema.define(:version => 20141010145354) do
     t.integer  "grant_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
-    t.string   "image"
     t.datetime "due"
+    t.string   "image"
   end
 
   create_table "uploads", :force => true do |t|
