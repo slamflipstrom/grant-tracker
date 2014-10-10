@@ -81,8 +81,5 @@ class TasksController < ApplicationController
   
   def assign
     @task = Task.find(params[:id])
-    
-    
   end
-  
 end
