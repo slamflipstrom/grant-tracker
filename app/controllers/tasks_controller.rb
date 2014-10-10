@@ -23,12 +23,8 @@ class TasksController < ApplicationController
   # GET /tasks/new.json
   def new
     @grant = Grant.find_by_id(params[:id])
-    @task = Task.new(key: params[:key])
     # @grant.tasks.build
     
-    @uploader = Task.new.image
-    @uploader.success_action_redirect = new_task_url
-
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @task }

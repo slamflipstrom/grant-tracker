@@ -13,20 +13,4 @@ class Task < ActiveRecord::Base
   def due_date=(date)
     self.due = Chronic.parse(date) if date.present?
   end
-  
-  def enqueue_image
-      ImageWorker.perform_async(id, key) if key.present?
-    end
-
-    class ImageWorker
-      include Sidekiq::Worker
-    
-      def perform(id, key)
-        task = Task.find(id)
-        task.key = key
-        task.remote_image_url = task.image.direct_fog_url(with_path: true)
-        task.save!
-        task.update_column(:image_processed, true)
-      end
-    end
 end
