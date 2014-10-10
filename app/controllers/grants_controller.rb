@@ -28,14 +28,14 @@ class GrantsController < ApplicationController
     # Only allows admin to create new grants.
     if current_user.admin == true
       @grant = Grant.new
-
+    
       respond_to do |format|
         format.html # new.html.erb
         format.json { render json: @grant }
       end
     else
       respond_to do |format|
-        format.html { redirect_to organization_path(current_user.organization_id) }
+        format.html { redirect_to dashboard_path, alert: 'Must be admin to create grant.' }
         format.json { render json: @grant }
       end
     end
@@ -51,6 +51,7 @@ class GrantsController < ApplicationController
   def create
     if current_user.admin == true
       @grant = Grant.new(params[:grant])
+      @grant.update_attribute('organization_id', current_user.organization_id)
 
       respond_to do |format|
         if @grant.save
