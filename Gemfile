@@ -47,7 +47,8 @@ gem 'carrierwave'
 gem 'fog'
 gem 'dotenv-rails', :groups => [:development, :test]
 gem 'delayed_job_active_record'
-gem 'rmagick', require: false
+gem 'rmagick'
 gem "mini_magick"
+
 gem 'sorcery'
 gem 'chronic'

@@ -10,6 +10,8 @@ class TasksController < ApplicationController
  
   def show
     @task = Task.find(params[:id])
+    @uploader = Task.new.image
+    @uploader.success_action_redirect = task_url
 
     respond_to do |format|
       format.html # show.html.erb
