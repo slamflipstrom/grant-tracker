@@ -17,6 +17,7 @@ GrantTracker::Application.routes.draw do
   
   resources :user_sessions
   resources :users, path: 'user'
+  get '/users' => 'users#index', :as => 'users'
   resources :tasks, path: 'task'
   resources :grants, path: 'grant'
   resources :organizations, path: 'organization'

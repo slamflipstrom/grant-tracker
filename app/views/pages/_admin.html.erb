@@ -1,43 +1,31 @@
-<h2>ADMIN DASH</h2>
+<h3>Upcoming Deadlines</h3>
 
-<h3>All Users</h3>
-
-<ul>
-  <% @org.users.each do |user| %>
-    <%= content_tag_for :li, user do %>
-      <%= link_to user.name, user_path(user.id) %>
+<ul class='dash-ul'>
+  <% @due.each do |task| %>
+    <%= content_tag_for :li, task, class: 'dash-li' do %>
+      <%= link_to "#{task.grant.name}: #{task.name}", task_path(task.id), class: 'dash-link' %>
+      <p class="task-due"><%= if task.due then task.due.strftime("%m/%d/%Y") else "None" end %></p>
     <% end %>
   <% end %>
 </ul>
 
- <h3>Upcoming Deadlines</h3>
-
-  <ul class='dash-ul'>
-    <% @due.each do |task| %>
-      <%= content_tag_for :li, task, class: 'dash-li' do %>
-        <%= link_to task.name, task_path(task.id), class: 'dash-link' %>
-        <p class="task-due"><%= if task.due then task.due.strftime("%m/%d/%Y") else "None" end %></p>
-      <% end %>
-    <% end %>
-  </ul>
-
-<h3>All Grants</h3>
- 
- <ul class='dash-ul'>
-   <% @org.grants.each do |grant| %>
-     <%= content_tag_for :li, grant, class: 'dash-li' do %>
-       <%= link_to grant.name, grant_path(grant.id), class: 'dash-link' %>
-     <% end %>
-   <% end %>
- </ul>
-
 <h3>All Tasks</h3>
 
- <ul class='dash-ul'>
-   <% @tasks.each do |task| %>
-     <%= content_tag_for :li, task, class: 'dash-li' do %>
-       <%= link_to task.name, task_path(task.id), class: 'dash-link' %>
-       <p class="task-due"><%= if task.due then task.due.strftime("%m/%d/%Y") else "None" end %></p>
-     <% end %>
+<ul class='dash-ul'>
+ <% @tasks.each do |task| %>
+   <%= content_tag_for :li, task, class: 'dash-li' do %>
+     <%= link_to "#{task.grant.name}: #{task.name}", task_path(task.id), class: 'dash-link' %>
+     <p class="task-due"><%= if task.due then task.due.strftime("%m/%d/%Y") else "---" end %></p>
    <% end %>
- </ul>
+ <% end %>
+</ul>
+
+<h3>All Grants</h3>
+
+<ul class='dash-ul'>
+ <% @org.grants.each do |grant| %>
+   <%= content_tag_for :li, grant, class: 'dash-li' do %>
+     <%= link_to grant.name, grant_path(grant.id), class: 'dash-link' %>
+   <% end %>
+ <% end %>
+</ul>
