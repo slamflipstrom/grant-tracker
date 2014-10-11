@@ -3,4 +3,21 @@
   <%= @grant.name %>
 </p>
 
-<%= link_to "Add Task", org_task_path(@grant.id) %>
+<p>
+  <b>Private:</b>
+  <%= @grant.private %>
+</p>
+
+
+<h4>Current Tasks:</h4>
+ <ul class='dash-ul'>
+   <% @grant.tasks.each do |task| %>
+     <%= content_tag_for :li, task, class: 'dash-li' do %>
+       <%= link_to task.name, task_path(task.id), class: 'dash-link' %>
+       <p class="task-due"><%= if task.due then task.due.strftime("%m/%d/%Y") else "None" end %></p>
+     <% end %>
+   <% end %>
+ </ul>
+
+
+<%= link_to "Add Task", org_task_path(@grant.id) %> | <%= link_to "Return to Dashboard", dashboard_path %>

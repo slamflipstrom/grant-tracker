@@ -1,5 +1,5 @@
 class Grant < ActiveRecord::Base
-  attr_accessible :name, :tasks_attributes, :uploads_attributes # :image
+  attr_accessible :name, :private, :tasks_attributes, :uploads_attributes # :image
   
   has_many :tasks
   belongs_to :organization
