@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20141010145354) do
+ActiveRecord::Schema.define(:version => 20141011192514) do
 
   create_table "controllers", :force => true do |t|
     t.string   "user"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(:version => 20141010145354) do
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
     t.string   "image"
+    t.boolean  "private"
   end
 
   create_table "organizations", :force => true do |t|
@@ -40,8 +41,8 @@ ActiveRecord::Schema.define(:version => 20141010145354) do
     t.integer  "grant_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
-    t.string   "image"
     t.datetime "due"
+    t.string   "image"
   end
 
   create_table "uploads", :force => true do |t|
