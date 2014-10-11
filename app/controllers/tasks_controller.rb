@@ -7,7 +7,7 @@ class TasksController < ApplicationController
   end
  
   def show
-    @task = Task.find(params[:id]).sort_by(:id)
+    @task = Task.find(params[:id])
     @users = User.where(organization_id: current_user.organization_id)
 
     respond_to do |format|
