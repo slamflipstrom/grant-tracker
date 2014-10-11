@@ -24,6 +24,11 @@ select {
   padding: 5px;
 }
 
+.header-title {
+  margin: 0;
+  padding-bottom: 10px;
+}
+
 .header-nav-link {
   @extend %ul_link;
 }

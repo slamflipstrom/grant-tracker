@@ -10,6 +10,8 @@
   <body>
 <div class="container">
   <header>
+    <h1 class="header-title">Grant Tracker</h1>
+    
     <nav>
       <ul class="header-nav-ul">
         <% if current_user %>
@@ -27,8 +29,6 @@
   </header>
   
   <div class="main">
-    
-    <h1 class="main-title">Grant Tracker</h1>
  
    <div class="flash">
      <p id="notice"><%= flash[:notice] %></p>
