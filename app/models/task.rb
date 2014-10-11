@@ -9,10 +9,16 @@ class Task < ActiveRecord::Base
  
   mount_uploader :image, ImageUploader
   
-  # Formats due date for Task.
+  # Formats due date for editing task.
   #
   def due_date
-    due.try(:strftime, "%a, %e %b %Y %l:%M %p")
+    due.localtime.try(:strftime, "%b %e %Y, %l:%M %p")
+  end
+  
+  # Formats due date for showing task in views.
+  #
+  def pretty_due
+    due.localtime.try(:strftime, "%a, %e %b %Y %l:%M %p")
   end
   
   # Sets due date for Task.

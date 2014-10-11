@@ -13,6 +13,14 @@ header{
  @extend %sans-serif;
 }
 
+#notice {
+ color: green; 
+}
+
+#alert {
+  color: red;
+}
+
 a {
   color: $purple;
   text-decoration: none;

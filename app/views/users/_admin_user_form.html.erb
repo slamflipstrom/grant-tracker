@@ -9,6 +9,8 @@
 <% end %>
 
   <div class="actions">
-    <%= submit_tag "Update" %>
+    <%= submit_tag "Assign Task(s)" %>
   </div>
 <% end %>
+
+<%= link_to 'Destroy', @user, method: :delete, data: { confirm: 'Are you sure?' }, class:  %><br />
