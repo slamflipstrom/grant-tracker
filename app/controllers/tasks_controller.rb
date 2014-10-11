@@ -80,10 +80,10 @@ class TasksController < ApplicationController
   end
   
   def assign_user
-    @task = Task.find_by_id(params[:id])
+    @task = Task.find_by_id(params[:id].to_i)
     
     respond_to do |format|
-      if @task.update_attribute('user_id', params[:task][:user_id])
+      if @task.update_attribute('user_id', params[:task][:user_id].to_i)
         format.html { redirect_to task_path(@task.id), notice: 'Task was successfully updated.' }
         format.json { head :no_content }
       else
@@ -94,8 +94,13 @@ class TasksController < ApplicationController
   end
         
   def assign_task
-    @oldtasks = User.find_by_id(params[:id]).tasks
-    @newtasks = Task.find(params[:task].map(&:to_i))
+    @oldtasks = User.find_by_id(params[:id].to_i).tasks
+    
+    if params[:task]
+      @newtasks = Task.find(params[:task].map(&:to_i))
+    else
+      @newtasks = []
+    end
     
     respond_to do |format|
       if Task.assign_user_to_tasks(@newtasks, @oldtasks, params[:id])

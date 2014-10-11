@@ -9,30 +9,39 @@ class Task < ActiveRecord::Base
  
   mount_uploader :image, ImageUploader
   
+  # Formats due date for Task.
+  #
   def due_date
     due.try(:strftime, "%a, %e %b %Y %l:%M %p")
   end
   
+  # Sets due date for Task.
+  #
   def due_date=(date)
     self.due = Chronic.parse(date) if date.present?
   end
   
-  def assign_task(user_id)
-    
-  end
-  
+  # Assigns multiple tasks to user.
+  # newtasks = Array of updated tasks
+  # oldtasks = Array of previously assigned tasks
+  # user_id = id of User to assign task to
+  #
   def self.assign_user_to_tasks(newtasks, oldtasks, user_id)
-    
-    oldtasks.each do |o|
-      if newtasks.include?(o)
-        newtasks.each do |n|
-          n.update_attribute('user_id', user_id)
+    if oldtasks.length > 0
+      oldtasks.each do |o|
+        if newtasks.include?(o)
+          newtasks.each do |n|
+            n.update_attribute('user_id', user_id.to_i)
+          end
+        else
+          o.update_attribute('user_id', nil)
         end
-      else
-        o.update_attribute('user_id', nil)
+      end
+    else
+      newtasks.each do |n|
+        n.update_attribute('user_id', user_id.to_i)
       end
     end
-    
   end
   
 end
