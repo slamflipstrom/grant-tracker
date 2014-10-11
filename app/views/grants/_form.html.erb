@@ -16,6 +16,11 @@
     <%= f.text_field :name %>
   </div>
   
+  <div class="field">
+    <%= f.label "Private - Can only be viewed by other admins" %><br />
+    <%= f.check_box :private %>
+  </div>
+  
   <div class="actions">
     <%= f.submit %>
   </div>

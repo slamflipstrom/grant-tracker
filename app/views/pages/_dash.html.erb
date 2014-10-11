@@ -1,1 +1,10 @@
-<p><b>Assigned Tasks</b></p>
+<p><b>Assigned Tasks:</b></p>
+
+ <ul class='dash-ul'>
+   <% @non_admin_tasks.each do |task| %>
+     <%= content_tag_for :li, task, class: 'dash-li' do %>
+       <%= link_to task.name, task_path(task.id), class: 'dash-link' %>
+       <p class="task-due"><%= if task.due then task.due.strftime("%m/%d/%Y") else "None" end %></p>
+     <% end %>
+   <% end %>
+ </ul>

@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(:version => 20141011211040) do
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
     t.string   "image"
+    t.boolean  "private"
   end
 
   create_table "organizations", :force => true do |t|

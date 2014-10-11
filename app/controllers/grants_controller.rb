@@ -52,7 +52,7 @@ class GrantsController < ApplicationController
     if current_user.admin == true
       @grant = Grant.new(params[:grant])
       @grant.update_attribute('organization_id', current_user.organization_id)
-
+      
       respond_to do |format|
         if @grant.save
           format.html { redirect_to @grant, notice: 'Grant was successfully created.' }
