@@ -13,11 +13,7 @@ GrantTracker::Application.routes.draw do
   get '/organizations/:id/new_user' => 'organizations#new_user', as: 'organization_user'
   post '/users' => 'organizations#create_user'
   
-  put '/task/:id' => 'tasks#assign'
-  
   root :to => 'users#index'
-  
-  put '/task/:id' => 'tasks#assign'
   
   resources :user_sessions
   resources :users, path: 'user'
@@ -25,6 +21,8 @@ GrantTracker::Application.routes.draw do
   resources :grants, path: 'grant'
   resources :organizations, path: 'organization'
 
+  put '/task/:id/assign' => 'tasks#assign_user'
+  put '/user/:id/assign' => 'tasks#assign_task'
   get 'login' => 'user_sessions#new', :as => :login
   post 'logout' => 'user_sessions#destroy', :as => :logout
 

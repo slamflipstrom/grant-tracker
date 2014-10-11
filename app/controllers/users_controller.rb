@@ -6,6 +6,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @org = Organization.includes([:grants, :tasks, :users]).find_by_id(current_user.organization_id)
+    @tasks = @org.tasks.order('tasks.id')
     
     respond_to do |format|
       format.html # show.html.erb

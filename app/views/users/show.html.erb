@@ -1,16 +1,12 @@
-<p id="notice"><%= notice %></p>
-
 <p>
-  <b>Email:</b>
-  <%= @user.email %>
+  <b>Name:</b> <%= @user.name %><br />
+  <b>Email:</b>  <%= @user.email %>
 </p>
 
-<h4>User is currently assigned to the following tasks:</h4>
+<h4>Assigned tasks:</h4>
 
 <% @user.tasks.each do |task| %>
-
-<p><%= task.name %></p>
-
+  <%= task.id %>: <%= task.name %><br />
 <% end %>
 
 <% if current_user.admin && @org.tasks != nil%>

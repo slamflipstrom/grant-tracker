@@ -1,8 +1,9 @@
 <p>
   <b>Description:</b>
   <%= @task.description %>
-  <%= image_tag @task.image_url.to_s %>
 </p>
+
+<p><%= image_tag @task.image_url.to_s %></p>
 
 <p>
   <b>Due date:</b>
@@ -23,7 +24,7 @@
   <% end %>
 </p>
 
-<%= form_tag({action: 'assign', controller: 'tasks'}, method: :put) do %>
+<%= form_tag({action: 'assign_user', controller: 'tasks'}, method: :put) do %>
   <%= collection_select(:task, :user_id, @users, :id, :name) %>
   <%= submit_tag "Assign Task" %> 
 <% end %>

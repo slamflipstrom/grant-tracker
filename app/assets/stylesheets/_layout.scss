@@ -37,11 +37,12 @@ select {
   @extend %ul_link;
 }
 
-input {
+input[type=text] {
   @extend %inputs;
 }
 
 input[type=submit] {
+  @extend %inputs;
   @extend %submit;
 }
 

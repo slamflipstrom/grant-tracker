@@ -21,10 +21,18 @@ class Task < ActiveRecord::Base
     
   end
   
-  def assign_user(user_id)
-    self.each do |t|
-      t.update_attribute('user_id', user_id)
+  def self.assign_user_to_tasks(newtasks, oldtasks, user_id)
+    
+    oldtasks.each do |o|
+      if newtasks.include?(o)
+        newtasks.each do |n|
+          n.update_attribute('user_id', user_id)
+        end
+      else
+        o.update_attribute('user_id', nil)
+      end
     end
+    
   end
   
 end

@@ -4,11 +4,10 @@ class TasksController < ApplicationController
   # GET /tasks/1.json
   def index
     @tasks = Task.all
-  
   end
  
   def show
-    @task = Task.find(params[:id])
+    @task = Task.find(params[:id]).sort_by(:id)
     @users = User.where(organization_id: current_user.organization_id)
 
     respond_to do |format|
@@ -32,7 +31,7 @@ class TasksController < ApplicationController
   # GET /tasks/1/edit
   def edit
     @task = Task.find_by_id(params[:id])
-    
+  end
    
 
   # POST /tasks
@@ -81,12 +80,7 @@ class TasksController < ApplicationController
   end
   
   def assign_user
-    @tasks = Task.find(params[:id])
-    # @tasks.assign_user(params[:id])
-    
-    # @tasks.each do |t|
-    #   t.update_attribute('user_id', params[:id])
-    # end
+    @task = Task.find_by_id(params[:id])
     
     respond_to do |format|
       if @task.update_attribute('user_id', params[:task][:user_id])
@@ -99,14 +93,13 @@ class TasksController < ApplicationController
     end
   end
         
-  def assign
-    @task = Task.find(params[:task])
-    @tasks.assign_user(params[:id])
-    binding.pry
+  def assign_task
+    @oldtasks = User.find_by_id(params[:id]).tasks
+    @newtasks = Task.find(params[:task].map(&:to_i))
     
     respond_to do |format|
-      if @task.update_attribute('user_id', params[:id])
-        format.html { redirect_to @task, notice: 'Task was successfully updated.' }
+      if Task.assign_user_to_tasks(@newtasks, @oldtasks, params[:id])
+        format.html { redirect_to user_path(params[:id]), notice: 'Task was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
