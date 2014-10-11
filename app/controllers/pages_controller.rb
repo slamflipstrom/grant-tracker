@@ -8,7 +8,6 @@ class PagesController < ApplicationController
     @org = Organization.includes([:grants, :tasks, :users]).find_by_id(current_user.organization_id)
     @tasks = @org.tasks.order(:due)
     @due = @org.tasks.due_soon.order(:due)
-        binding.pry
     @non_admin_tasks = @org.tasks.where(user_id: current_user.id)
     
   end

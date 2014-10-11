@@ -9,7 +9,7 @@ class TasksController < ApplicationController
   def show
     @task = Task.find(params[:id])
     @users = User.where(organization_id: current_user.organization_id)
-
+    
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @task }

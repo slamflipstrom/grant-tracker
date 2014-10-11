@@ -24,8 +24,12 @@
   <% end %>
 </p>
 
-<%= form_tag({action: 'assign_user', controller: 'tasks'}, method: :put) do %>
-  <%= collection_select(:task, :user_id, @users, :id, :name) %>
-  <%= submit_tag "Assign Task" %> 
+<% if current_user.admin? == true %>
+  <%= form_tag({action: 'assign_user', controller: 'tasks'}, method: :put) do %>
+    <%= collection_select(:task, :user_id, @users, :id, :name) %>
+    <%= submit_tag "Assign Task" %> 
+  <% end %>
+<% else %>  
 <% end %>
+
 <%= link_to 'Edit', edit_task_path(@task.id) %>
