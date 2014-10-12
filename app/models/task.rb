@@ -5,7 +5,8 @@ class Task < ActiveRecord::Base
   belongs_to :grant
  
  validates :name, presence: true
- scope :due_soon, lambda { where(:due => Time.now..(Time.now + 1.week)) }
+ scope :due_soon, lambda { where(:due => Time.now..(Time.now + 42.weeks)) }
+ scope :past_due, lambda { where('due < ?', Time.now) }
  
   mount_uploader :image, ImageUploader
   
