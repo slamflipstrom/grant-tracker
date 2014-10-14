@@ -4,7 +4,9 @@ class UserSessionsController < ApplicationController
     def new
       @user = User.new
     end
-
+    def show
+      @user=User.find(params[:id])
+    end
     def create
       if @user = login(params[:email], params[:password])
         redirect_back_or_to(dashboard_path, notice: 'Login successful')
