@@ -1,42 +1,13 @@
 <p>ADMIN DASH</p>
 
-<%= link_to "Members", users_path %> 
-<%= link_to "Tasks", tasks_path %> 
-<%= link_to "Grants", grants_path %> 
-<%= link_to "Profile", user_path(current_user) %> 
-
-
-<h3>All Users</h3>
-
-<ul>
-  <% @org.users.each do |user| %>
-    <%= content_tag_for :li, user do %>
-      <%= user.name %>
-    <% end %>
-  <% end %>
-</ul>
-
-<h3>All Tasks</h3>
-
- <ul>
-   <% @org.tasks.each do |task| %>
-     <%= content_tag_for :li, task do %>
-       <%= link_to task.name, task_path(task.id) %>, Due: <%= if task.due then task.due.strftime("%m/%d/%Y") else "None" end %>
-     <% end %>
-   <% end %>
- </ul>
- 
-<h3>All Grants</h3>
- 
- <ul>
-   <% @org.grants.each do |grant| %>
-     <%= content_tag_for :li, grant do %>
-       <%= link_to grant.name, grant_path(grant.id) %> 
-     <% end %>
-   <% end %>
- </ul>
-
-
-<%= link_to "Add New User to #{@org.name}", org_user_path %> <br />
+<div class="panel">
+  <ul class = "admin-nav">
+    <li><%= link_to "Members", users_path %> </li>
+    <li><%= link_to "Tasks", tasks_path %> </li>
+    <li><%= link_to "Grants", grants_path %> </li>
+    <li><%= link_to "Profile", user_path(current_user) %> </li>
+  </ul>
+</div>
+ <a href="#" class="slider-arrow show">&raquo;</a>
 
 <%= link_to "New Grant", new_grant_path %> | <%= link_to 'Edit', edit_org_path %>

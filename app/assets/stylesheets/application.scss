@@ -47,3 +47,45 @@ nav ul li {
 h1{
   font-size: 20px;
 }
+
+
+//for menu slide panel
+.panel {
+	width:300px;
+	float:left;
+  background:#d9dada;
+	position:relative;
+	left:-300px;
+
+}
+.slider-arrow {
+	padding:8px;
+	width:10px;
+	float:left;
+	background:#d9dada;
+	font:400 12px Arial, Helvetica, sans-serif;
+	color:#000;
+	text-decoration:none;
+	position:relative;
+	left:-300px;
+}
+
+.admin-nav{
+  float:right;
+  
+    li{
+    display:block;
+    padding:10px;
+    margin-right:70px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
