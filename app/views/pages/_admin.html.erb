@@ -1,13 +1,6 @@
 <p>ADMIN DASH</p>
 
-<div class="panel">
-  <ul class = "admin-nav">
-    <li><%= link_to "Members", users_path %> </li>
-    <li><%= link_to "Tasks", tasks_path %> </li>
-    <li><%= link_to "Grants", grants_path %> </li>
-    <li><%= link_to "Profile", user_path(current_user) %> </li>
-  </ul>
-</div>
- <a href="#" class="slider-arrow show">&raquo;</a>
+
+
 
 <%= link_to "New Grant", new_grant_path %> | <%= link_to 'Edit', edit_org_path %>

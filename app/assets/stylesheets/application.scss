@@ -40,7 +40,8 @@ nav ul li {
 
 #container{
   width: 100%;
-  margin: 0 auto;
+  position:absolute;
+  z-index:-10;
  
 }
 
@@ -53,7 +54,7 @@ h1{
 .panel {
 	width:300px;
 	float:left;
-  background:#d9dada;
+  background:$red;
 	position:relative;
 	left:-300px;
 
@@ -62,7 +63,7 @@ h1{
 	padding:8px;
 	width:10px;
 	float:left;
-	background:#d9dada;
+	background:$red;
 	font:400 12px Arial, Helvetica, sans-serif;
 	color:#000;
 	text-decoration:none;
