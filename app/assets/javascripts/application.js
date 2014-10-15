@@ -33,7 +33,7 @@ $( document ).ready(function() {
 
   }
 
-  $("button").bind("click", function() {
+  $("#menu-button").bind("click", function() {
       toggleDivs();
   });
 });

@@ -69,8 +69,10 @@ h1{
 #panel {
     position:absolute;
     width: 400px;
-    height: 600px;
+    height: 800px;
    background-color:$purple;
+   -webkit-box-shadow: inset 30px -10px 28px 28px rgb(108, 102, 102);
+   top:-20px;
 }
 
 #home {
@@ -82,11 +84,11 @@ h1{
 }
 .menu{
   display:block;
-  display: block;
   float:left;
   width: 100%;
   overflow: hidden;
-  
+  position:relative;
+ top: 85px;
   li{
     display:block;
     display: block;
