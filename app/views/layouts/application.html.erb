@@ -8,49 +8,61 @@
       <link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,700|Raleway:500' rel='stylesheet' type='text/css'>
   </head>
   <body>
-    <% if current_user %>
-    <div class="panel">
-      <ul class = "admin-nav">
-        <li><%= link_to "Members", users_path %> </li>
-        <li><%= link_to "Tasks", tasks_path %> </li>
-        <li><%= link_to "Grants", grants_path %> </li>
-        <li><%= link_to "Profile", user_path(current_user) %> </li>
-      </ul>
-    </div> 
-    <% end %>
+   
     
    
-     <a href="#" class="slider-arrow show">&raquo;</a>
+   
 <div id="container">
-<header>
-  <nav>
-    <ul>
-      <% if current_user %>
-        <li><%= link_to "Dashboard", dashboard_path %></li>
-        <li><%= link_to "Logout", :logout, method: :post %></li>
-      <% else %>
 
+    <div id="inner">
+     
+      
+        <div id="panel">
+           
+          <ul class ="menu">
+            <% if current_user %>
+            <li><%= link_to "Members", users_path %> </li>
+            <li><%= link_to "Tasks", tasks_path %> </li>
+            <li><%= link_to "Grants", grants_path %> </li>
+            <li><%= link_to "Profile", user_path(current_user) %> </li>
+             <% end %>
+          </ul>
+        </div> 
+       
+  <div id="home"> 
+    <button>Click</button> 
+    <header>
+        <nav>
+          <ul>
+            <% if current_user %>
+              <li><%= link_to "Dashboard", dashboard_path %></li>
+              <li><%= link_to "Logout", :logout, method: :post %></li>
+            <% else %>
+      
+              
+              <li> <%= link_to "Signup", signup_path %> |</li>
+              <li> <%= link_to "Login", :login %></li>
+      
+            <% end %>
+          </ul>
+        </nav>
+      </header>
+      
+       
+       
+        <div>
+          <p id="notice"><%= flash[:notice] %></p>
+          <p id="alert"><%= flash[:alert] %></p>
+        </div>
         
-        <li> <%= link_to "Signup", signup_path %> |</li>
-        <li> <%= link_to "Login", :login %></li>
-
-      <% end %>
-    </ul>
-  </nav>
-</header>
-
- 
- 
-  <div>
-    <p id="notice"><%= flash[:notice] %></p>
-    <p id="alert"><%= flash[:alert] %></p>
-  </div>
-  
-  <div class="main">
- 
-    <%= yield %>
-  
-  </div>
+        <div class="main">
+       
+          <%= yield %>
+        
+        </div>
+      
+      </div>
+    </div>
 </div>
 
 

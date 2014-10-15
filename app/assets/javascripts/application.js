@@ -15,24 +15,25 @@
 //= require_tree .
 
 $( document ).ready(function() {
-  $(function(){
-    $('.slider-arrow').click(function(){
-      if($(this).hasClass('show')){
-      $( ".slider-arrow, .panel" ).animate({
-        left: "+=200"
-        }, 700, function() {
-          // Animation complete.
-        });
-        $(this).html('&laquo;').removeClass('show').addClass('hide');
+  function toggleDivs() {
+      var $inner = $("#inner");
+
+      // See which <divs> should be animated in/out.
+      if ($inner.position().left == -400) {
+          $inner.animate({
+              left: "-200px"
+          });
       }
-      else {      
-      $( ".slider-arrow, .panel" ).animate({
-        left: "-=200"
-        }, 700, function() {
-          // Animation complete.
-        });
-        $(this).html('&raquo;').removeClass('hide').addClass('show');    
+      else {
+          $inner.animate({
+            left: "-400px"
+          });
       }
-    });
+
+
+  }
+
+  $("button").bind("click", function() {
+      toggleDivs();
   });
 });
