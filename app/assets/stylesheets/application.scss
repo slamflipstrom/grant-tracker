@@ -55,12 +55,10 @@ h1{
 
 //pages-index
 #pages-index {
-
 height:250px;
 margin-top: -16px;
 padding: 20px;
 text-align: center;
-
 -webkit-box-shadow: -0px 2px 12px 3px rgba(222, 225, 230, 0.38);
   h1{
     font-size: 30px;
@@ -70,7 +68,7 @@ text-align: center;
   hr{
     width: 216px;
     margin-top: -21px;
-    border: 1px solid $red;
+    border: 1px solid $purple;
   }
 }
 
@@ -82,12 +80,52 @@ text-align: center;
 #pages-content{
   clear:left;
   font-size:15px;
-  padding:20px;
+  padding:40px;
+  line-height:1.5em;
   
 }
 
-
-
+#pages-index a{
+  color: $purple;
+  text-decoration: none;
+  -webkit-box-shadow: 0px 2px 12px 3px rgba(222, 225, 230, 0.38);
+  box-shadow: 0px 2px 12px 3px rgba(222, 225, 230, 0.38);
+  padding-left: 43px;
+  padding-right: 43px;
+  position: relative;
+  top:76px;
+}
+#pages-index a{
+   -webkit-transition: -webkit-box-shadow 0.5s ease;
+   -webkit-transition: color 0.5s ease;
+}
+#pages-index a:hover{
+  color: $red;
+  text-decoration: none;
+  -webkit-box-shadow: 0px -1px 12px 3px rgba(222, 225, 230, 0.5);
+  box-shadow: 0px -1px 12px 3px rgba(222, 225, 230, 0.5);
+  padding-left: 43px;
+  padding-right: 43px;
+  position: relative;
+  top:76px;
+}
+#pages-form {
+  padding:40px;
+  input{
+    width:100%;
+    height:30px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: white;
+    -webkit-box-shadow: 0px 2px 12px 3px rgba(222, 225, 230, 0.38);
+    box-shadow: 0px 2px 12px 3px rgba(222, 225, 230, 0.38);
+   }  
+   .field{
+     margin-bottom:20px;
+     font-size: 14px;
+     color:$purple; 
+   }
+}
 
 
 
@@ -97,10 +135,8 @@ text-align: center;
     position:relative;
     width:100%;
     height:600px;
-    overflow:hidden;
-    top:-10px;
- 
-  
+    
+   
 }
 
 #inner {
@@ -114,7 +150,7 @@ text-align: center;
     height: 800px;
    background-color:$purple;
    -webkit-box-shadow: inset 30px -10px 28px 28px rgb(108, 102, 102);
-   top:-20px;
+  
 }
 
 #home {

@@ -15,6 +15,16 @@
 //= require_tree .
 
 $( document ).ready(function() {
+  
+  
+  $('#pages-index').find('a').click(function() {
+      $('html, body').animate({
+          scrollTop: $('#pages-form').offset().top
+      }, 700);
+  });
+  
+  
+  
   function toggleDivs() {
       var $inner = $("#inner");
 
