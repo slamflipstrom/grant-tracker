@@ -17,14 +17,19 @@
 $( document ).ready(function() {
   
   
-  $('#pages-index').find('a').click(function() {
-      $('html, body').animate({
-          scrollTop: $('#pages-form').offset().top
-      }, 700);
+  function scrollY(){
+    $('html, body').animate({
+              scrollTop: $('#pages-form').offset().top
+          }, 700); 
+  }
+   $('#pages-index').find('a').on("click", function() {
+    scrollY();
   });
-  
-  
-  
+  $('header').find('#signup').on("click", function() {
+   scrollY();
+ });
+ 
+ 
   function toggleDivs() {
       var $inner = $("#inner");
 
